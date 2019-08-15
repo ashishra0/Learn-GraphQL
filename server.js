@@ -12,13 +12,19 @@ const schema = new GraphQLSchema({
       message: { 
         type: GraphQLString,
         resolve: () => 'Hello world'  
+      },
+      name: {
+        type: GraphQLString,
+        resolve: () => 'Ashish Rao'
       }
     })
   })
 })
 const app = express()
+
 app.use('/graphql', expressGraphQL({
   schema: schema,
   graphiql: true
 }))
+
 app.listen(5000, () => console.log("app is up and running"))
